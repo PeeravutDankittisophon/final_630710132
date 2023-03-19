@@ -30,12 +30,12 @@ class ApiClient {
     List list = responseBody.status;
     return list.map((item) => ResponseBody.fromJson(item)).toList();
   }
-  Future<ResponseBody?> getViewPollsResult(String id) async{
+  Future<ResponseBody?> getViewPollsResult(String message) async{
     var responBody = await _makeRequest(httpMethod, get,'/polls/1/result',);
     Map<String, dynamic>? map = responBody.message;
     return map != null ? ResponseBody.fromJson(map) : null;
   }
-  Future<ResponseBody?> postVotePolls(String id) async{
+  Future<ResponseBody?> postVotePolls(dynamic data) async{
     var responBody = await _makeRequest(httpMethod, post,/polls/1',);
     Map<String, dynamic>? map = responBody.message;
     return map != null ? ResponseBody.fromJson(map) : null;
